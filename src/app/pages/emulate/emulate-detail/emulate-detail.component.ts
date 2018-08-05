@@ -3,7 +3,7 @@
 
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
-
+import { NouisliderModule } from 'ng2-nouislider/src/nouislider';
 import { Message } from '../../../services/interfaces/system-message';
 import { GuiFakeCell } from '../../../services/interfaces/fake-cell';
 

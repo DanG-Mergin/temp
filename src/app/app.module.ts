@@ -47,13 +47,13 @@ import * as $ from 'jquery';
         SharedModule,
 
         //SocketIoModule.forRoot(environment.socketIoConfig),
-        SocketIoModule.forRoot(environment.TESTsocketIoConfig),
+        // SocketIoModule.forRoot(environment.TESTsocketIoConfig),
         // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
         // and returns simulated server responses.
         // Remove it when a real server is ready to receive requests.
-        HttpClientInMemoryWebApiModule.forRoot(
-          InMemoryDataService, { dataEncapsulation: false }
-        ),
+        // HttpClientInMemoryWebApiModule.forRoot(
+        //   InMemoryDataService, { dataEncapsulation: false }
+        // ),
          
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyBr5_picK8YJK7fFR2CPzTVMj6GG1TtRGo'
