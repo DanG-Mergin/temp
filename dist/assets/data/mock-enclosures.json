@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "name": "Harbor District",
+        "ip": "192.168.01",
+        "status": true,
+        "lastUpdated": "2018-14-25T03:24:00"
+    },
+    {
+        "id": "2",
+        "name": "Harbor District2",
+        "ip": "192.168.02",
+        "status": false,
+        "lastUpdated": "2018-14-25T05:24:00"
+    }
+]
