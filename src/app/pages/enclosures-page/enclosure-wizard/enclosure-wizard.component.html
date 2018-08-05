@@ -1,0 +1,619 @@
+
+  <aw-wizard 
+    [navBarLayout]="'large-empty-symbols'"
+    [navigationMode]="'semi-strict'"
+    >
+  	<aw-wizard-step stepTitle="Enclosure" [navigationSymbol]="{ symbol: '&#xf233;', fontFamily: 'FontAwesome' }">
+  		<div class="row" >
+  			<div class="col-12">
+  				<div class="card">
+  					<div class="card-body">
+  						<div class="card-block">
+  							<form class="icons-tab-steps wizard-circle" #f="ngForm">
+  								<!-- Step 1 -->
+  								<h6>Enclosure</h6>
+  								<fieldset>
+  									<div class="row">
+  										<div class="col-md-6">
+  											<div class="form-group">
+  												<label for="enclosureName">Enclosure Name</label>
+  												<input type="text" class="form-control" id="enclosureName" name="enclosureName"
+  												[(ngModel)]="newEnclosure.name">
+  											</div>
+  										</div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                         <!-- <option value="Pelican">Pelican</option> -->
+                          <label for="type">Type</label>
+                          <select class="custom-select form-control" id="type" data-placeholder="type" name="type">
+                            <option value="Master" selected="">Master</option>
+                            <option value="Master">Slave</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                         <!-- <option value="Pelican">Pelican</option> -->
+                          <label for="make">Model</label>
+                          <select class="custom-select form-control" id="type" data-placeholder="make" name="make">
+                            <option value="Master" selected="">Pelican</option>
+                            <option value="Master">19 Rack</option>
+                          </select>
+                        </div>
+                      </div>
+
+
+  										<!-- <div class="col-md-6">
+  											<div class="form-group">
+  												<label for="enclosureIP">IP Address</label>
+  												<input type="text" class="form-control" id="enclosureIP" name="enclosureIP"
+  												[(ngModel)]="newEnclosure.ip">
+  											</div>
+  										</div> -->
+  									</div>
+  									<div class="row">
+  										<div class="col-md-6">
+  											<div class="form-group">
+  												<label for="picSixSerial">PICSIX Serial</label>
+  												<input type="text" class="form-control" id="picSixSerial" name="picSixSerial"
+  												[(ngModel)]="newEnclosure.picSixSerial">
+  											</div>
+  										</div>
+  									</div>
+  								</fieldset>
+  								<button type="button" class="btn btn-raised btn-info mt-2 col-md-3 btn-success" awNextStep>Add Computer</button>
+  								<!-- [awGoToStep]="{stepIndex: 2}" -->
+  								<!-- <button type="button" >Go directly to third Step</button> -->
+  							</form>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</aw-wizard-step>
+  	<aw-wizard-step stepTitle="Computer" [navigationSymbol]="{ symbol: '&#xf2db;', fontFamily: 'FontAwesome' }">
+  		<div class="row" >
+  			<div class="col-12">
+  				<div class="card">
+  					<div class="card-body">
+  						<div class="card-block">
+  							<form class="icons-tab-steps wizard-circle" #f="ngForm">
+  								<h6>Computer</h6>
+  								<fieldset>
+  									<div class="row">
+  										<div class="col-md-6">
+  											<div class="form-group">
+  												<label for="computerType">Computer Type</label>
+  												<input type="text" class="form-control" id="computerType" name="computerType"
+  												[(ngModel)]="newEnclosure.sbc.type">
+  											</div>
+                      </div>
+                        <div class="col-md-6">
+    											<div class="form-group">
+    												<label for="vendorSerial">Vendor Serial</label>
+    												<input type="text" class="form-control" id="vendorSerial" name="vendorSerial"
+    												[(ngModel)]="newEnclosure.sbc.vendorSerial">
+    											</div>
+                        </div>
+                        <div class="col-md-6">
+  											<div class="form-group">
+  												<label for="simNumber">Sim Number</label>
+  												<input type="url" class="form-control" id="simNumber" name="simNumber"
+  												[(ngModel)]="newEnclosure.sbc.simNumber">
+  											</div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Has Controller</label>
+                          <div class="checkbox">
+                            <div class="custom-control custom-checkbox m-0">
+                              <input type="checkbox" class="custom-control-input" id="hasController" name="hasController"
+                              [(ngModel)]="newEnclosure.sbc.hasController">
+                              <label class="custom-control-label" for="hasController">Yes</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+  									</div>
+  								</fieldset>
+  								<button type="button" awPreviousStep class="btn btn-raised btn-info mt-2 col-md-3 btn-warning">Back to Enclosure</button>
+  								<button type="button" awNextStep class="btn btn-raised btn-info mt-2 ml-2 col-md-3 btn-success">Add Controller</button>
+  							</form>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</aw-wizard-step>
+
+    <aw-wizard-step awOptionalStep Title="Controller" [navigationSymbol]="{ symbol: '&#xf0a0;', fontFamily: 'FontAwesome' }">
+      <div class="row" >
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-block">
+                <form class="icons-tab-steps wizard-circle" #f="ngForm">
+                  <h6>Controller</h6>
+                  <fieldset>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="controllerMake">Make</label>
+                          <select class="custom-select form-control" id="controllerMake" data-placeholder="Arduino" name="controllerMake">
+                            <option value="Arduino">Arduino</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="Model">Model</label>
+                          <input type="text" class="form-control" id="Model" name="Model">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="OS">Operating System</label>
+                          <input type="text" class="form-control" id="OS" name="OS">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="IP">IP Address</label>
+                          <input type="text" class="form-control" id="IP" name="IP">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="controllerMfcSerial">Manufacturer Serial Number</label>
+                          <input type="text" class="form-control" id="controllerMfcSerial" name="controllerMfcSerial">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="simNumber">Sim Number</label>
+                          <input type="text" class="form-control" id="simNumber" name="simNumber">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="contPicSixSerial">PicSix Serial Number</label>
+                          <input type="text" class="form-control" id="contPicSixSerial" name="contPicSixSerial">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="licenseNumber">License Number</label>
+                          <input type="text" class="form-control" id="licenseNumber" name="licenseNumber">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <button type="button" awPreviousStep class="btn btn-raised btn-info mt-2 col-md-3 btn-warning">Back to Computer</button>
+                   
+                  <button type="button" *ngIf="newEnclosure.sbc.hasController" 
+                    awNextStep class="btn btn-raised btn-info mt-2 col-md-3 ml-2 btn-success"> 
+                    Add Controller</button>
+                  <button type="button" awNextStep class="btn btn-raised btn-info mt-2 col-md-3 ml-2 btn-success">Add Switch</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </aw-wizard-step>
+    <aw-wizard-step Title="Switch" [navigationSymbol]="{ symbol: '&#xf0a0;', fontFamily: 'FontAwesome' }">
+      <div class="row" >
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-block">
+                <form class="icons-tab-steps wizard-circle" #f="ngForm">
+                  <h6>Switch</h6>
+                  <fieldset>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="controllerMake">Make</label>
+                          <select class="custom-select form-control" id="controllerMake" data-placeholder="Arduino" name="controllerMake">
+                            <option value="Arduino">Arduino</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <button type="button" class="btn btn-raised btn-info mt-2 col-md-3 btn-warning" awPreviousStep>Back To Controller</button>
+                  <button type="button" class="btn btn-raised btn-info mt-2 col-md-3 ml-2 btn-success" awNextStep>Add SDRs</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aw-wizard-step>
+  	<aw-wizard-step stepTitle="Software Defined Radios" [navigationSymbol]="{ symbol: '&#xf0a0;', fontFamily: 'FontAwesome' }">
+  		<div class="row" >
+  			<div class="col-12">
+  				<div class="card">
+  					<div class="card-body">
+  						<div class="card-block">
+  							<form class="icons-tab-steps wizard-circle" #f="ngForm">
+  								<h6>Software Defined Radios</h6>
+  								<fieldset>
+  									<div class="row">
+  										<div class="col-md-6">
+  											<div class="form-group">
+  												<label for="sdrType">SDR Type</label>
+  												<select class="custom-select form-control" id="sdrType" data-placeholder="OCT BTS 3500" name="sdrType">
+  													<option value="OCT3500">OCT BTS 3500</option>
+  												</select>
+  											</div>
+  											<div class="form-group">
+                          <label for="sdrIP">SDR IP Address</label>
+                          <input type="text" class="form-control" id="sdrIP" name="sdrIP" 
+                          [(ngModel)]="newEnclosure.sdr.ip">
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="vendorSerial">Vendor Serial</label>
+                          <input type="text" class="form-control" id="vendorSerial" name="vendorSerial"
+                          [(ngModel)]="newEnclosure.sdr.vendorSerial">
+                        </div>
+
+  										</div>
+  										<div class="col-md-6">
+                        
+                        <div class="form-group">
+                          <label for="softwareVersion">Software Version</label>
+                          <input type="text" class="form-control" id="softwareVersion" name="softwareVersion" 
+                          [(ngModel)]="newEnclosure.sdr.swVersion">
+                        </div>
+                        <div class="form-group">
+                          <label for="build">Build</label>
+                          <input type="text" class="form-control" id="build" name="build" 
+                          [(ngModel)]="newEnclosure.sdr.build">
+                        </div>
+  											<div class="form-group">
+  												<label>Protocols</label>
+  												<div class="checkbox">
+  													<div class="custom-control custom-checkbox m-0">
+  														<input type="checkbox" class="custom-control-input" id="twoG">
+  														<label class="custom-control-label" for="twoG">2g</label>
+  													</div>
+  												<!-- </div>
+  												<div class="checkbox"> -->
+  													<div class="custom-control custom-checkbox m-0">
+  														<input type="checkbox" class="custom-control-input" id="threeG">
+  														<label class="custom-control-label" for="threeG">3g</label>
+  													</div>
+  												<!-- </div>
+  												<div class="checkbox"> -->
+  													<div class="custom-control custom-checkbox m-0">
+  														<input type="checkbox" class="custom-control-input" id="fourG">
+  														<label class="custom-control-label" for="fourG">4g</label>
+  													</div>
+  												</div>
+  											</div>
+  										</div>
+  									</div>
+                    
+  								</fieldset>
+                  <div class="row" >
+                    <ng-container 
+                    *ngFor="let bts of newEnclosure.sdr.BTS;let i=index;">
+                      <div class="form-group col-md-6">
+                        <label for="btsIP{{i}}">BTS {{i + 1}} IP Address</label>
+                        <input type="text" class="form-control" id="btsIP{{i}}" name="btsIP{{i}}"
+                        [(ngModel)]="newEnclosure.sdr.BTS[i].ip">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label for="btsPort{{i}}">BTS {{i + 1}} Port Number</label>
+                        <input type="text" class="form-control" id="btsPort{{i}}" name="btsPort{{i}}"
+                        [(ngModel)]="newEnclosure.sdr.BTS[i].port">
+                      </div>
+                    </ng-container>
+                  </div>
+                <div>
+                  <button (click)="addEmptyBTS()" 
+                    type="button" 
+                    class="btn btn-raised  btn-primary btn-sm mt-2 col-md-2">Add BTS
+                  </button>
+                </div>
+  								<button type="button" class="btn btn-raised btn-info mt-2 col-md-3 btn-warning" awPreviousStep>Back To Switch</button>
+  								<button type="button" class="btn btn-raised btn-info mt-2 col-md-3 ml-2 btn-success" awNextStep>Add RF Chains</button>
+  							</form>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</aw-wizard-step>
+
+  	<aw-wizard-step stepTitle="RF Chains" [navigationSymbol]="{ symbol: '&#xf0c1;', fontFamily: 'FontAwesome' }">
+  		<div class="row" >
+  			<div class="col-12">
+  				<div class="card">
+  					<div class="card-body">
+  						<div class="card-block">
+  							<form class="icons-tab-steps wizard-circle" #f="ngForm">
+  								<h6>Radio Frequency Chains</h6>
+  								<!-- *ngFor="let rfc of newEnclosure.rfChains" [rfc]="rfc" -->
+  								<fieldset *ngFor="let rfc of newEnclosure.rfChains;let idx=index;">
+                    <div class="form-group">
+                      <label for="rfChainType">RF Chain Type</label>
+                      <select [(ngModel)]="newEnclosure.rfChains[idx].type" class="custom-select form-control" id="rfChainType" data-placeholder="Shared" name="rfChainType">
+                        <option value="Shared">Shared</option>
+                        <option value="Dedicated">Dedicated</option>
+                      </select>
+                    </div>
+                    <div class="row" *ngIf="newEnclosure.rfChains[idx].type === 'Dedicated'">
+                      <div class="form-group col-md-3">
+                        <label for="ampIp">IP</label>
+                        <input type="text" class="form-control" id="ampIp" name="ampIp"
+                        [(ngModel)]="newEnclosure.rfChains[idx].amp.ip">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="ampMake">Make</label>
+                        <input type="text" class="form-control" id="ampMake" name="ampMake"
+                        [(ngModel)]="newEnclosure.rfChains[idx].amp.make">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="ampModel">Model</label>
+                        <input type="text" class="form-control" id="ampModel" name="ampModel"
+                        [(ngModel)]="newEnclosure.rfChains[idx].amp.model">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="ampMfcSerial">Manufacturer Serial</label>
+                        <input type="text" class="form-control" id="ampMfcSerial" name="ampMfcSerial"
+                        [(ngModel)]="newEnclosure.rfChains[idx].amp.mfcSerial">
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="ampPicSixSerial">PicSix Serial</label>
+                        <input type="text" class="form-control" id="ampPicSixSerial" name="ampPicSixSerial"
+                        [(ngModel)]="newEnclosure.rfChains[idx].amp.picSixSerial">
+                      </div>
+                    </div>
+                    <ng-container *ngIf="newEnclosure.rfChains[idx].type === 'Shared'">
+                      <ng-container 
+                      *ngFor="let band of newEnclosure.rfChains[idx].freqBands; let bandIndex=index;"> 
+                        <div class="row">
+                          <!-- TODO: When you select the band, you should have the gain levels
+                          returned from the server into a dropdown from which the user can select -->
+                          <div class="form-group col-md-3">
+                              <label for="band">Band</label>
+                              <input type="text" class="form-control" id="band" name="band"
+                              [(ngModel)]="newEnclosure.rfChains[idx].freqBands[bandIndex].band">
+                            </div>
+      											<div class="form-group col-md-3">
+      												<label for="gainLow{{bandIndex}}">Gain Low</label>
+      												<input type="text" class="form-control" id="gainLow{{bandIndex}}" name="gainLow{{bandIndex}}"
+      												[(ngModel)]="newEnclosure.rfChains[idx].freqBands[bandIndex].gainLow">
+      											</div>
+                            <div class="form-group col-md-3">
+                              <label for="gainHigh{{bandIndex}}">Gain High</label>
+                              <input type="text" class="form-control" id="gainHigh{{bandIndex}}" name="gainHigh{{bandIndex}}"
+                              [(ngModel)]="newEnclosure.rfChains[idx].freqBands[bandIndex].gainHigh">
+                            </div>
+                            <div class="form-group col-md-3">
+                              <label for="txAttentive">Tx Attentive</label>
+                              <input type="text" class="form-control" id="txAttentive" name="txAttentive"
+                              [(ngModel)]="newEnclosure.rfChains[idx].freqBands[bandIndex].txAttentive">
+                            </div>
+                            
+                            <div class="form-group col-md-3">
+                              <label for="threshold">Threshold Dbm</label>
+                              <input type="text" class="form-control" id="threshold" name="threshold">
+                            </div>
+  										  </div>
+                        
+                      </ng-container>
+                    </ng-container>
+                    
+
+										<!-- <div class="row">
+  										<div class="col-md-6">
+  											<div class="form-group">
+  												<label for="dbmController">DBm Controller</label>
+  												<input type="text" class="form-control" id="dbmController" name="dbmController"
+  												[(ngModel)]="newEnclosure.rfChains[idx].dbmController">
+  											</div>
+  											<div class="form-group">
+  												<label for="rfIP">RF Chain IP Address</label>
+  												<input type="text" class="form-control" id="rfIP" name="rfIP"
+  												[(ngModel)]="newEnclosure.rfChains[idx].ip">
+  											</div>
+  										</div>
+	  								</div> -->
+
+                    <button *ngIf="newEnclosure.rfChains[idx].type === 'Shared'"
+                      (click)="addEmptyFreqBand(idx)" 
+                      type="button" 
+                      class="btn btn-raised btn-primary btn-sm  mt-2 col-md-2">Add Band
+                    </button>
+                    <button (click)="addEmptyRfChain()" 
+                      type="button" 
+                      class="btn btn-sm btn-raised btn-info mt-2 col-md-2 ml-2">Add RF Chain
+                    </button>
+
+  							</fieldset>
+  							<button type="button" class="btn btn-raised btn-info mt-2 col-md-3 btn-warning" awPreviousStep>Back To RF Chains</button>
+  							<!-- (click)="finishFunction()" -->
+  							<button type="button" class="btn btn-raised btn-info mt-2 col-md-3 ml-2 btn-success">Save</button>
+  						</form>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </aw-wizard-step>
+</aw-wizard>
+
+  <!-- Wizard Starts -->
+  <!-- <div class="row">
+  	<div class="col-sm-12">
+  		<div class="content-header">Enclosure Wizard</div>
+  	</div>
+  </div>
+  <section id="icon-tabs">
+  	<div class="row" >
+  		<div class="col-12">
+  			<div class="card">
+  				<div class="card-header">
+  					<h4 class="card-title">Form wizard with icon tabs</h4>
+  				</div>
+  				<div class="card-body">
+  					<div class="card-block">
+  						<form class="icons-tab-steps wizard-circle" #f="ngForm">
+  							<!-- Step 1 
+  							<h6>Enclosure</h6>
+  							<fieldset>
+  								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="enclosureName">Enclosure Name</label>
+											<input type="text" class="form-control" id="enclosureName" name="enclosureName"
+											[(ngModel)]="newEnclosure.name">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="enclosureIP">IP Address</label>
+											<input type="text" class="form-control" id="enclosureIP" name="enclosureIP">
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="picSixSerial">PICSIX Serial</label>
+											<input type="text" class="form-control" id="picSixSerial" name="picSixSerial">
+										</div>
+									</div>
+								</div>
+  							</fieldset>
+  							<!-- Step 2 
+  							<h6>Computer</h6>
+  							<fieldset>
+  								<div class="row">
+  									<div class="col-md-6">
+  										<div class="form-group">
+  											<label for="computerType">Computer Type</label>
+  											<input type="text" class="form-control" id="computerType" name="computerType">
+  										</div>
+  										<div class="form-group">
+  											<label for="vendorSerial">Vendor Serial</label>
+  											<input type="text" class="form-control" id="vendorSerial" name="vendorSerial">
+  										</div>
+  										<div class="form-group">
+  											<label for="simNumber">Sim Number</label>
+  											<input type="url" class="form-control" id="simNumber" name="simNumber">
+  										</div>
+  									</div>
+  									<div class="col-md-6">
+  										<div class="form-group">
+  											<label for="memSize">Memory Size</label>
+  											<input type="text" class="form-control" id="memSize" name="memSize">
+  										</div>
+  										<div class="form-group">
+  											<label for="storageSize">Storage Size</label>
+  											<input type="text" class="form-control" id="storageSize" name="storageSize">
+  										</div>
+  									</div>
+  								</div>
+  							</fieldset>
+  							<!-- Step 3 
+  							<h6>Software Defined Radios</h6>
+  							<fieldset>
+  								<div class="row">
+  									<div class="col-md-6">
+  										<div class="form-group">
+  											<label for="sdrType">SDR Type</label>
+  											<select class="custom-select form-control" id="sdrType" data-placeholder="OCT BTS 3500" name="sdrType">
+  												<option value="OCT3500">OCT BTS 3500</option>
+  											</select>
+  										</div>
+  										<div class="form-group">
+  											<label for="vendorSerial">Vendor Serial</label>
+  											<input type="text" class="form-control" id="vendorSerial" name="vendorSerial">
+  										</div>
+  										<div class="form-group">
+  											<label for="sdrIP">SDR IP Address</label>
+  											<input type="text" class="form-control" id="sdrIP" name="sdrIP">
+  										</div>
+  									</div>
+  									<div class="col-md-6">
+  										<div class="form-group">
+  											<label for="btsPort1">BTS One Port Number</label>
+  											<input type="text" class="form-control" id="btsPort1" name="btsPort1">
+  										</div>
+  										<div class="form-group">
+  											<label for="btsPort2">BTS Two Port Number</label>
+  											<input type="text" class="form-control" id="btsPort2" name="btsPort2">
+  										</div>
+  										
+  										<div class="form-group">
+  											<span>Protocols</span>
+  											<div class="checkbox">
+  												<div class="custom-control custom-checkbox m-0">
+  													<input type="checkbox" class="custom-control-input" id="twoG">
+  													<label class="custom-control-label" for="twoG">2g</label>
+  												</div>
+  											</div>
+  											<div class="checkbox">
+  												<div class="custom-control custom-checkbox m-0">
+  													<input type="checkbox" class="custom-control-input" id="threeG">
+  													<label class="custom-control-label" for="threeG">3g</label>
+  												</div>
+  											</div>
+  											<div class="checkbox">
+  												<div class="custom-control custom-checkbox m-0">
+  													<input type="checkbox" class="custom-control-input" id="fourG">
+  													<label class="custom-control-label" for="fourG">4g</label>
+  												</div>
+  											</div>
+  										</div>
+  									</div>
+  								</div>
+  							</fieldset>
+  							<!-- Step 4 
+  							<h6>Radio Frequency Chains</h6>
+  							<!-- *ngFor="let rfc of newEnclosure.rfChains" [rfc]="rfc" 
+  							<fieldset >
+  								<div class="row">
+  									<div class="col-md-6">
+  										<div class="form-group">
+  											<label for="freqBand">Frequency Band</label>
+  											<input type="text" class="form-control" id="freqBand" name="freqBand">
+  										</div>
+  										<div class="form-group">
+  											<label for="gain">Gain</label>
+  											<input type="text" class="form-control" id="gain" name="gain">
+  										</div>
+  									</div>
+  									<div class="col-md-6">
+  										<div class="form-group">
+  											<label for="dbmController">DBm Controller</label>
+  											<input type="text" class="form-control" id="dbmController" name="dbmController">
+  										</div>
+  										<div class="form-group">
+  											<label for="rfIP">RF Chain IP Address</label>
+  											<input type="text" class="form-control" id="rfIP" name="rfIP">
+  										</div>
+  										
+  									</div>
+  								</div>
+  								<div class="form-group">
+									<button (click)="addEmptyRfChain($event)" 
+									type="button" 
+									class="btn btn-outline-primary mt-2">Add Another
+					              	</button>
+								</div>
+  							</fieldset>
+  						</form>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section> -->
+  <!-- Wizard Ends -->

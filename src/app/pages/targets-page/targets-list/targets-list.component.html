@@ -1,0 +1,35 @@
+
+
+
+<div class="clearfix">
+	<ngx-datatable
+	style="width: 90%"
+	class="material"
+	[rows]="rows"
+	[columnMode]="'force'"
+	[headerHeight]="50"
+	[footerHeight]="50"
+	[rowHeight]="'auto'"
+	[limit]="5"
+	[selected]="selected"
+	[selectionType]="'multiSelect'" 
+	(activate)="onActivate($event)"
+	(select)='onSelect($event)'>
+	
+		<ngx-datatable-column name="BTS" prop="BTS"></ngx-datatable-column>
+		<ngx-datatable-column name="Time" prop="time"></ngx-datatable-column>
+		<ngx-datatable-column name="Operator" prop="operator"></ngx-datatable-column>
+		<ngx-datatable-column name="Imsi" prop="imsi"></ngx-datatable-column>
+		<ngx-datatable-column name="Tmsi" prop="tmsi"></ngx-datatable-column>
+		<ngx-datatable-column name="Cell" prop="cellNumber"></ngx-datatable-column>
+					
+	</ngx-datatable>
+<!-- (click)="addEmptyBTS()" -->
+    <button  
+		type="button" 
+		class="btn btn-outline-primary mt-2 col-md-2">Export List
+	</button>
+</div>
+
+
+<!-- <app-targets-dialog></app-targets-dialog> -->

@@ -1,0 +1,81 @@
+<div *ngIf="enclosure">
+
+	<h2>{{ enclosure.name | uppercase }} Details</h2>
+
+	<div>
+		<label>Name:
+		  <input [(ngModel)]="enclosure.name" placeholder="name"/>
+		</label>
+		<label>IP Address:
+		  <input [(ngModel)]="enclosure.ip" placeholder="ip"/>
+		</label>
+		<label>PicSix Serial:
+		  <input [(ngModel)]="enclosure.picSixSerial" placeholder="PicSix Serial"/>
+		</label>
+		<div>
+			<h4>Computer</h4>
+			<label>Type:
+				<input [(ngModel)]="enclosure.sbc.type" placeholder="Computer Type"/>
+			</label>
+			<label>Vendor Serial:
+				<input [(ngModel)]="enclosure.sbc.vendorSerial" placeholder="Vendor Serial"/>
+			</label>
+			<label>IP Address:
+				<input [(ngModel)]="enclosure.sbc.ip" placeholder="xxx.xxx.xxx.x"/>
+			</label>
+			<label>Sim Number:
+				<input [(ngModel)]="enclosure.sbc.simNumber" placeholder="Sim Number"/>
+			</label>
+			<label>Memory Size:
+				<input [(ngModel)]="enclosure.sbc.memorySize" placeholder="Memory Size"/>
+			</label>
+			<label>Storage Size:
+				<input [(ngModel)]="enclosure.sbc.storageSize" placeholder="Storage Size"/>
+			</label>
+		</div>
+		<div>
+			<h4>Software Defined Radio</h4>
+			<label>Type:
+				<input [(ngModel)]="enclosure.sdr.type" placeholder="SDR Type"/>
+			</label>
+			<label>Vendor Serial:
+				<input [(ngModel)]="enclosure.sdr.vendorSerial" placeholder="Vendor Serial"/>
+			</label>
+			<label>IP Address:
+				<input [(ngModel)]="enclosure.sdr.ip" placeholder="xxx.xxx.xxx.x"/>
+			</label>
+			<label>BTS 1 Port Number:
+				<input [(ngModel)]="enclosure.sdr.BTSport1" placeholder="xxxx"/>
+			</label>
+			<label>BTS 2 Port Number:
+				<input [(ngModel)]="enclosure.sdr.BTSport2" placeholder="xxxx"/>
+			</label>
+			<label>Protocols:
+				<input [(ngModel)]="enclosure.sdr.protocols" placeholder="Replace with checkboxes"/>
+			</label>
+		</div>
+
+		<div>
+			<h4>Radio Frequency Chains</h4>
+			<div *ngFor="let rfChain of enclosure.rfChains">
+		        <label>Frequency Band:
+					<input [(ngModel)]="rfChain.protocols[0]" placeholder="xxxx"/>
+					<span>-</span>
+					<input [(ngModel)]="rfChain.protocols[1]" placeholder="xxxx"/>
+				</label>
+				<label>Gain:
+					<input [(ngModel)]="rfChain.gain" placeholder="gain"/>
+				</label>
+				<label>DBm Controller:
+					<input [(ngModel)]="rfChain.dbmController" placeholder="dbm Controller"/>
+				</label>
+				<label>IP Address:
+					<input [(ngModel)]="rfChain.ip" placeholder="xxx.xxx.xxx.x"/>
+				</label>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+

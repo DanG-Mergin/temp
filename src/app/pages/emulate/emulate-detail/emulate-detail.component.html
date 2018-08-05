@@ -1,0 +1,175 @@
+
+<div class="col-md-12">
+	<div class="card bts-card">
+		<div class="card-body">
+			<h5 class="info align-middle ml-2 mt-2 d-inline-block">BTS {{fakeCell.btsId}}</h5>
+			<!-- <button type="button" class="float-right mt-1 mr-1 btn btn-outline-primary" 
+			(click)="toggleExpand()"
+			aria-controls="collapseExample">+
+		</button> -->
+
+				
+			<ui-switch class="float-right mt-1 mr-1 transmit-toggle" size="large" (change)="toggleTransmitting()" 
+			[ngModel]="isTransmitting">
+			</ui-switch>
+
+		<!-- <button type="button" class="btn btn-raised float-right mt-1 mr-1 btn-success shadow-z-2"
+	       [ngClass]="transmitting ? 'btn-danger' : 'btn-success'"
+	       (click)="transmit()">
+	        Transmit
+        </button> -->
+	</div>
+	<div class="card-body" style="color: black !important;"  [ngbCollapse]="!isCollapsed">
+		<div class="row p-2">
+			<div class="col-6">
+				<h5>{{fakeCell.operator}}</h5>
+			</div>
+			<div class="col-6">
+				<select id="workMode" name="workMode" class="form-control"
+				[(ngModel)]="fakeCell.workMode">
+				<option value="release" selected="" disabled="">Release</option>
+				<option value="hold">Hold</option>
+				<option value="hold">Downgrade</option>
+			</select>
+		</div>
+	</div>
+	<div class="row p-2">
+		<div class="col-4 form-group">
+			<label>Rat</label>
+			<h6>{{fakeCell.rat}}</h6>
+		</div>
+		<div class="col-4 form-group">
+			<label>Band</label>
+			<h6>{{fakeCell.band}}</h6>
+		</div>
+		<div class="col-4 form-group">
+			<label>Power</label>
+			<h6>{{fakeCell.gain}}</h6>
+		</div>
+		<div class="col-12">
+			<div class="form-group">
+				<nouislider [config]="powerSliderConfig" [(ngModel)]="fakeCell.gain"></nouislider>
+			</div>
+		</div>	
+		
+	</div>	
+	<div class="overflow-hidden">
+		<button type="button" aria-controls="collapseExample"
+			class="btn btn-outline-primary m-0 w-100 pb-0 hide-on-hover down-arrow-after down-arrow-before no-border-radius" 
+			(click)="toggleExpand()">
+			Advanced Settings
+		</button>
+	</div>
+</div>
+
+<!-- collapse section -->
+<div class="card-body" [ngbCollapse]="isCollapsed">
+	<form class="form">
+		<div class="form-body">	
+
+			<div class="row pl-3 pr-3">
+				<div class="form-group col-3 p-1">
+					<label for="operator collapsed-hidden">Operator</label>
+					<input disabled class="form-control" type="string" id="operator" name="operator"
+					[(ngModel)]="fakeCell.operator">
+				</div>
+				<div class="form-group col-2 p-1">
+					<label  for="rat" class="collapsed-hidden">Rat</label>
+					<input class="form-control" type="string" id="rat" name="rat"
+					[(ngModel)]="fakeCell.rat">
+				</div>
+				<div class="form-group col-2 p-1">
+					<label for="band" >Band</label>
+					<input disabled class="form-control" type="string" id="band" name="band"
+					placement="top" ngbPopover="'{{popoverValues.EmulateBand}}'"
+					[(ngModel)]="fakeCell.band">
+				</div>
+				<div class="form-group col-2 p-1">
+					<label for="mcc">MCC</label>
+					<input id="mcc" type="text" class="form-control" name="mcc" disabled [(ngModel)]="fakeCell.mcc">
+				</div>
+				<div class="form-group col-2 p-1">
+					<label for="mnc" >MNC</label>
+					<input id="mnc" type="text" class="form-control" name="mnc"disabled [(ngModel)]="fakeCell.mnc">
+				</div>
+			</div>
+
+			<div class="row pl-3 pr-3">
+				<!-- <div class="col-md-3 pt-1"> -->
+					<div class="form-group form-group col-3 p-1">
+						<label for="workMode" class="">Mode</label>
+							<select id="workMode" name="workMode" class="form-control"
+							[(ngModel)]="fakeCell.workMode">
+							<option value="release" selected="" disabled="">Release</option>
+							<option value="hold">Hold</option>
+						</select>
+					</div>
+			<!-- 	</div> -->
+				<div class="form-group col-xs-12 col-3 p-0">
+					<label for="gainTwo" >Power</label>
+					<div class="form-group">
+						<nouislider name="gainTwo" 
+						[config]="powerSliderConfig" [tooltips]="true" 
+						[(ngModel)]="fakeCell.gain"></nouislider>
+					</div>
+				</div>
+				<div class="col-md-2 p-1">
+					<div class="form-group">
+						<label  for="arfcn" >ARFCN</label>
+						<input class="form-control" 
+						type="number" id="arfcn" name="arfcn"
+						[(ngModel)]="fakeCell.arfcn">
+					</div>
+				</div>
+				<div class="col-md-2 p-1">
+					<div class="form-group">
+						<label for="lacInput" class="">LAC</label>
+						<input type="text" id="lacInput" class="form-control" placeholder="LAC" name="lacInput"
+						[(ngModel)]="fakeCell.lac">
+						<label for="keepLac" 
+					class="btn btn-raised btn-outline-info pt-1 pb-1 w-100"
+					ngbButtonLabel>
+						<input type="checkbox" ngbButton id="keepLac" name="keepLac"
+						[(ngModel)]="fakeCell.keepLac">Keep
+					</label>
+					</div>
+				</div>
+				<!-- <div class="col-md-2">
+					<label for="keepLac" 
+					class="btn btn-raised btn-outline-info mt-4"
+					ngbButtonLabel>
+						<input type="checkbox" ngbButton id="keepLac" name="keepLac"
+						[(ngModel)]="fakeCell.keepLac">Keep
+					</label>
+				</div> -->
+				
+				<div class="col-md-2">
+					<label  for="smsBroadcast" 
+					class="btn btn-raised btn-outline-info mt-4 btn-sm pt-2 pb-2"
+					ngbButtonLabel>
+						<input ngbButton id="smsBroadcast" name="smsBroadcast"
+						[(ngModel)]="fakeCell.smsBroadcast"
+						type="checkbox" >SMS <br> Broadcast
+					</label>
+				</div>
+				
+			</div>
+	<div class="row ">
+		
+		
+	</div>
+	<div class="overflow-hidden">
+		<button type="button" aria-controls="collapseExample"
+			class="btn btn-outline-primary m-0 w-100 pb-0 hide-on-hover up-arrow-after up-arrow-before no-border-radius" 
+			(click)="toggleExpand()">
+			Close Advanced Settings
+		</button>
+	</div>
+</div>
+</form>
+</div>
+
+
+
+
+

@@ -1,0 +1,83 @@
+<!-- *ngIf="targets[0]" -->
+
+<div class="row target-dialog">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-body">
+				<div class="card-block">
+					<form [formGroup]="targetForm" novalidate (ngSubmit)="addTarget(targetForm)">
+						<h6>Target</h6>
+						<fieldset>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+			                          <label for="name">Name</label>
+			                          <input type="text" class="form-control" id="name" name="name"
+			                          formControlName="name">
+			                        </div>
+									<div class="form-group">
+			                          <label for="imsi">IMSI</label>
+			                          <input type="text" class="form-control" id="imsi" name="imsi"
+			                          formControlName="imsi">
+			                        </div>
+			                        <div class="form-group">
+			                          <label for="tmsi">TMSI</label>
+			                          <input type="text" class="form-control" id="tmsi" name="tmsi"
+			                          formControlName="tmsi">
+			                        </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+			                          <label for="cellNumber">Phone Number</label>
+			                          <input type="text" class="form-control" id="cellNumber" name="cellNumber"
+			                          formControlName="cellNumber">
+			                        </div>
+									<div class="form-group">
+			                          <label for="arfcn">ARFCN</label>
+			                          <input type="text" class="form-control" id="arfcn" name="arfcn"
+			                          formControlName="arfcn">
+			                        </div>
+			                        <div class="form-group">
+			                          <label for="operator">Operator</label>
+			                          <input type="text" class="form-control" id="operator" name="operator"
+			                          formControlName="operator">
+			                        </div>
+			                        <div class="form-group">
+			                          <label for="btsName">BTS Name</label>
+			                          <input type="text" class="form-control" id="btsName" name="btsName"
+			                          formControlName="btsName">
+			                        </div>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<div class="card-block">
+					<button  
+						type="button" 
+						class="btn btn-outline-primary mt-2 col-md-3">Silent Call
+					</button>
+					<button  
+						type="button" 
+						class="btn btn-outline-primary mt-2 col-md-3">SMS
+					</button>
+					<button  
+						type="button" 
+						class="btn btn-outline-primary mt-2 col-md-3">Hold
+					</button>
+					<button  
+						type="button" 
+						class="btn btn-outline-primary mt-2 col-md-3">Call
+					</button>
+					<button  
+						type="button" 
+						class="btn btn-outline-primary mt-2 col-md-3">Select BTS
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

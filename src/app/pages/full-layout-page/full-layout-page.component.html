@@ -1,0 +1,30 @@
+
+<!--TODO: move scan to its own module-->
+
+<app-scan-select></app-scan-select>
+
+<section *ngIf="cellsPopulated">
+    <div class="input-group mt-5">
+    	<div class="input-group-prepend">
+            <div class="btn-group btn-group-toggle">
+            	<label class="btn-raised btn-primary" ngbButtonLabel>
+                    <input type="checkbox" ngbButton
+                    [(ngModel)]="listActive"> List 
+                </label>
+                <label class="btn-raised btn-primary" ngbButtonLabel>
+                    <input type="checkbox" ngbButton
+                    [(ngModel)]="mapActive"> Map 
+                </label>
+    		</div>
+        </div>
+    </div>
+    <app-scan-list-component *ngIf="listActive"></app-scan-list-component>
+    <app-google-map *ngIf="mapActive"></app-google-map>
+
+    <div class="clearfix">
+    	<app-emulate class="clearfix"></app-emulate>
+    </div>
+</section>
+<div class="clearfix">
+        <app-emulate class="clearfix"></app-emulate>
+    </div>

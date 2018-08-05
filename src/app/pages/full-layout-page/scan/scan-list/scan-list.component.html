@@ -1,0 +1,60 @@
+
+<!-- *ngIf="openScanList" -->
+<div >
+<div class="clearfix mt-4">
+	<ngx-datatable
+	style="width: 90%"
+	class="material"
+	[rows]="rows"
+	[columnMode]="'force'"
+	[headerHeight]="50"
+	[footerHeight]="50"
+	[rowHeight]="'auto'"
+	[limit]="5"
+	[selected]="selected"
+	[selectionType]="'multiClick'"
+	(activate)="onActivate($event)"
+	(select)='onSelect($event)'>
+
+		<ngx-datatable-column name="Operator" prop="operator"></ngx-datatable-column>
+		<ngx-datatable-column name="RAT" prop="rat"></ngx-datatable-column>
+		<ngx-datatable-column name="Band" prop="band"></ngx-datatable-column>
+		<ngx-datatable-column name="Cell ID" prop="cellId"></ngx-datatable-column>
+		<ngx-datatable-column name="Rx Level" prop="powerLevel"></ngx-datatable-column>		
+	</ngx-datatable>
+
+	 <!-- <div class='selected-column'>
+        <h4>Selections</h4>
+        <ul>
+          <li *ngFor='let sel of selected'>
+            <span>{{sel.operator.name}}</span>
+            <span>{{sel.operator.mcc}}</span>
+            <span>{{sel.operator.mnc}}</span>
+            <span>{{sel.band}}</span>
+            <span>{{sel.channel}}</span>
+            <span>{{sel.rxLevel}}</span>
+            <span>{{sel.lac}}</span>
+            <span>{{sel.cellID}}</span>
+            <span>{{sel.bsic}}</span>
+          </li>
+          <li *ngIf="!selected.length">No Selections</li>
+        </ul>
+      </div> -->
+
+     <!--  {{message}}
+    <button (click)="newMessage()">New Message 1</button> -->
+
+    
+</div>
+	<a class="btn btn-raised btn-primary" (click)="requestAutoConfig()">Use Recommended Settings</a>
+	<a class="btn btn-raised btn-primary">Save Scan Results</a>
+	<section *ngIf="showMeNow === true">
+       <button type="button" class="btn btn-raised col-12 btn-success shadow-z-2"
+       [ngClass]="allTransmitting ? 'btn-danger' : 'btn-success'"
+       (click)="transmitAllToggled()" [(ngModel)]="txText">
+        {{txText}}
+        </button>
+    </section>
+
+</div>
+<!-- This is based on an algorithm to determine best emulate settings -->

@@ -1,0 +1,36 @@
+
+<app-enclosure-wizard [newEnclosure]="newEnclosure"></app-enclosure-wizard>
+
+<div class="clearfix">
+	<ngx-datatable
+	style="width: 90%"
+	class="material"
+	[rows]="rows"
+	[columnMode]="'force'"
+	[headerHeight]="50"
+	[footerHeight]="50"
+	[rowHeight]="'auto'"
+	[limit]="5"
+	[selected]="selected"
+	[selectionType]="'single'"
+	(activate)="onActivate($event)"
+	(select)='onSelect($event)'>
+	
+		<ngx-datatable-column name="Name"></ngx-datatable-column>
+		<ngx-datatable-column name="IP Address" prop="ip"></ngx-datatable-column>
+		<ngx-datatable-column name="Status"></ngx-datatable-column>
+		<ngx-datatable-column name="Last Updated">
+			<ng-template let-value="value" ngx-datatable-cell-template>
+	            {{value | date: 'medium'}}
+	        </ng-template>
+		</ngx-datatable-column>
+		<ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false">
+			<ng-template ngx-datatable-header-template ></ng-template>
+		 	<ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+		        <img class="edit-icon" src="assets/img/svg/editicon.svg" (click)="detail(row)"/>
+		    </ng-template>
+		</ngx-datatable-column>
+	</ngx-datatable>
+</div>
+<app-enclosure-detail [enclosure]="selected[0]"></app-enclosure-detail>
+

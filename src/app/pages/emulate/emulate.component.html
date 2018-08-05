@@ -1,0 +1,20 @@
+<!-- *ngIf="fakeCells.length" -->
+<section id="sizing">
+	<div class="row clear-fix" *ngIf="showMe" >
+		<div class="col-12">
+			<div class="row">
+				<div class="col-6"></div>
+				<div class="form-group col-6" style="margin-top:-60px;">
+					<ui-switch class="mt-1 mr-1 transmit-toggle" size="large" 
+					(change)="transmitAllToggled()" [ngModel]="allTransmitting"></ui-switch>
+					<label><h5>{{txAllText}}</h5></label>
+				</div>
+			</div>
+		</div>
+		<app-emulate-detail class="bts-card-parent"
+			*ngFor="let fakeCell of fakeCells" 
+			[fakeCell]="fakeCell">	
+		</app-emulate-detail> 
+	</div>
+</section>
+<div class="clear-fix h-100"></div>

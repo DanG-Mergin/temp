@@ -1,0 +1,81 @@
+<!-- TODO: move styles to css -->
+<div class="row" style="min-height: 100px;">
+    <div class="col-12 col-md-2 mh-80 mt-1 mb-1">
+       <button type="button" class="btn btn-raised h-100 col-12 btn-success shadow-z-2"
+       [ngClass]="scanRunning ? 'btn-danger' : 'btn-success'"
+       (click)="requestScan()">
+        {{scanBtnText}}
+        </button>
+   </div>
+   <div class="col-md-10">
+        <div class="row no-gutter">
+           <div class="col-12 col-md-9 no-gutter" >
+                <div class="row no-gutter mt-1">
+                    <div class="col-12 col-md-4 no-gutter ">
+                        <div class="btn-group btn-group-toggle col-md-12">
+                            <label class="btn-raised btn-outline-info mb-1 mt-1 mr-1 btn active d-inline-flex align-items-center" ngbButtonLabel>
+                                <input type="checkbox" ngbButton 
+                                [ngModel]="allRatsSelected" 
+                                (change)="allRatsChanged()"> 
+                                {{textValues.All}}
+                                <br/>
+                                {{textValues.RATs}}
+                            </label>
+                            <div class="btn-group btn-group-vertical mh-80 mt-1 mb-1">
+                                <label *ngFor="let rat of availableRats;let idx=index;"
+                                [ngClass]="availableRats[idx].available ? 'btn-outline-info' : 'btn-secondary'"
+
+                                
+                                class="btn-raised" ngbButtonLabel>
+                                    <input type="checkbox" ngbButton 
+                                    [(ngModel)]="availableRats[idx].selected"
+                                    (change)="toggleAllRats(availableRats[idx].selected)"
+                                    [disabled]="!availableRats[idx].available" >
+                                    {{availableRats[idx].rat}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-8">
+                        <div class="row no-gutter p-0 h-100">
+                            <div class="btn-group btn-group-toggle col-12 col-md-3 col-lg-4 col-xl-3">
+                                <label class="btn-raised btn-outline-info mb-1 mt-1 mr-1 btn active d-inline-flex align-items-center" ngbButtonLabel>
+                                    <input [ngModel]="allBandsSelected" 
+                                    (change)="allBandsChanged()"
+                                        type="checkbox" ngbButton> 
+                                        {{textValues.All}}<br/>{{textValues.Bands}}
+                                </label>
+                            </div>
+                            <div class="btn-group btn-group-toggle col-12 col-md-9 col-lg-8 col-xl-9 mt-1 pl-1">
+                                <ul class="list-inline m-0">
+                                     <li *ngFor="let band of availableBands;let idx=index;"
+                                        class="list-inline-item" style="min-width: 65px;">
+                                        <label [ngClass]="availableBands[idx].available ? 'btn-outline-info' : 'btn-secondary'" 
+                                        
+                                        class="btn btn-raised w-100" ngbButtonLabel>
+                                            <input [(ngModel)]="availableBands[idx].selected"
+                                            (change)="toggleAllBand(availableBands[idx].selected)" 
+                                            [disabled]="!availableBands[idx].available"
+                                                type="checkbox" ngbButton> {{availableBands[idx].band}}
+                                        </label>
+                                     </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+           <div class="col-md-3 btn-group btn-group-vertical">
+            <button type="button" class="col-12 btn btn-raised btn-primary btn-sm col-12" >Load Scan</button>
+            <button type="button" class="col-12 btn btn-raised btn-primary btn-sm mt-1 col-12" >Load Config</button>
+            <button type="button" class="btn btn-raised btn-sm mt-1 col-12"
+             [ngClass]="optionsChanged ? 'btn-primary' : 'btn-secondary'"
+             [disabled]="optionsChanged == true ? true : null">
+                Save Config
+            </button>
+         </div>
+        </div>
+    </div>
+    
+</div>
+
