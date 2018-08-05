@@ -27,4 +27,16 @@
     app-root:empty ~ .page-loading {
       opacity: 1;
       z-index: 1;
-    }</style><link href="styles.49867b07cf0a4188fba2.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><div class="page-loading"><img src="assets/img/oval.svg" class="loading-icon"/></div><script type="text/javascript" src="inline.45f637e2a915b4d5c4a8.bundle.js"></script><script type="text/javascript" src="polyfills.0431a7459f1f56e0a9de.bundle.js"></script><script type="text/javascript" src="scripts.e7a17792a08b895c3e1c.bundle.js"></script><script type="text/javascript" src="vendor.b0fa81e01baaf2fd190a.bundle.js"></script><script type="text/javascript" src="main.a876c5cd87c9b980fd90.bundle.js"></script></body></html>
+    }</style><link href="styles.49867b07cf0a4188fba2.bundle.css" rel="stylesheet"/>
+
+<script>
+  // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+  </head><body><app-root></app-root><div class="page-loading"><img src="assets/img/oval.svg" class="loading-icon"/></div><script type="text/javascript" src="inline.45f637e2a915b4d5c4a8.bundle.js"></script><script type="text/javascript" src="polyfills.0431a7459f1f56e0a9de.bundle.js"></script><script type="text/javascript" src="scripts.e7a17792a08b895c3e1c.bundle.js"></script><script type="text/javascript" src="vendor.b0fa81e01baaf2fd190a.bundle.js"></script><script type="text/javascript" src="main.a876c5cd87c9b980fd90.bundle.js"></script></body></html>
