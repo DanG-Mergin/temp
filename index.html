@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Picsix IMSI Catcher</title><base href="https://dang-mergin.github.io/temp"><link rel="icon" type="image/x-icon" href="favicon.ico"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"><link href="assets/fonts/feather/style.min.css" rel="stylesheet"><link href="assets/fonts/simple-line-icons/style.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet" type="text/css"><link rel="stylesheet" href="assets/vendor/pace/themes/black/pace-theme-flash.css"/><style type="text/css">.pace .pace-activity {
+      top: 19px;
+      right: 19px;
+      display: none;
+    }
+    .page-loading {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      overflow: hidden;
+      background: rgba(51, 51, 51, 1.00);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: -1;
+    }
+    .loading-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 38px;
+      height: 38px;
+      margin-left: -19px;
+      margin-top: -19px;
+    }
+    app-root:empty ~ .page-loading {
+      opacity: 1;
+      z-index: 1;
+    }</style><script>// See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();</script><link href="styles.5b20779e0a9f2b3b5406.bundle.css" rel="stylesheet"/></head><body><app-root></app-root><div class="page-loading"><img src="assets/img/oval.svg" class="loading-icon"/></div><script type="text/javascript" src="inline.c0d515c03d155baac716.bundle.js"></script><script type="text/javascript" src="polyfills.4235ed58be885e036e59.bundle.js"></script><script type="text/javascript" src="scripts.e7a17792a08b895c3e1c.bundle.js"></script><script type="text/javascript" src="main.4a97c1f2a5d6e53882f7.bundle.js"></script></body></html>
